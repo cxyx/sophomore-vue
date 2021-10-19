@@ -1,0 +1,728 @@
+2021-10-13 11:26:19.306 | ERROR    | rbac.views.views:get:88 - 'QueryDict' object is not callable
+Traceback (most recent call last):
+
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x110341ca0>
+    └ <Thread(Thread-1, started daemon 123145391534080)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x1103419d0>
+    └ <Thread(Thread-1, started daemon 123145391534080)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 123145391534080)>
+    │    │        │    └ (<socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=(...
+    │    │        └ <Thread(Thread-1, started daemon 123145391534080)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x1139a0190>>
+    └ <Thread(Thread-1, started daemon 123145391534080)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 61275)
+    │    │              └ <socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    └ <function BaseServer.finish_request at 0x111712af0>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x1139a0190>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x1139a0190>
+    │    │                   │        └ ('127.0.0.1', 61275)
+    │    │                   └ <socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x1139a0190>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x113193790>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x113b9ce50>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x113193820>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x113b9ce50>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 197, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x1131b5c10>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x1139a0190>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x113b9ce50>
+    │       └ <function BaseHandler.run at 0x1131b28b0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x113b9cd30>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x1131b2c10>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x113b9cd30>
+    │    │        │           │    └ {'PATH': '/Users/cx/.virtualenvs/sophomore/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x113b9cd30>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x113984e20>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x113b9cd30>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 68, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x113b9cd30>>
+           │    │           └ {'PATH': '/Users/cx/.virtualenvs/sophomore/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x1116f6d60>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x113984e20>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 133, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               │    └ <function BaseHandler.get_response at 0x113184790>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x1116f6d60>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x1139831f0>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x1116f6d60>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x113930730>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x1139839d0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x113930730>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x113930b20>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x113983af0>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x113930b20>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               └ <django.middleware.common.CommonMiddleware object at 0x11393beb0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x113983c10>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x11393beb0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x111714a90>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x113983b80>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x111714a90>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x11171b8e0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x113983a60>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x11171b8e0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x1116f6c40>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               │           │    └ <function BaseHandler._get_response at 0x113983ca0>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x1116f6c40>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x1116f6d60>>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/rbac/test/?id=1'>
+               └ <function ApiRootView at 0x113884700>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           │          │       └ {}
+           │          └ (<WSGIRequest: GET '/rbac/test/?id=1'>,)
+           └ <function ApiRootView at 0x113884670>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+           │    │        │         │       └ {}
+           │    │        │         └ ()
+           │    │        └ <WSGIRequest: GET '/rbac/test/?id=1'>
+           │    └ <function APIView.dispatch at 0x113648b80>
+           └ <rbac.views.views.ApiRootView object at 0x113b94e20>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               │       │         │       └ {}
+               │       │         └ ()
+               │       └ <rest_framework.request.Request: GET '/rbac/test/?id=1'>
+               └ <bound method ApiRootView.get of <rbac.views.views.ApiRootView object at 0x113b94e20>>
+
+> File "/Users/cx/workspace/sophomore/apps/rbac/views/views.py", line 84, in get
+    work_order = get_object_or_404(WorkOrder, pk=request.GET('id'))
+                 │                 │             └ <rest_framework.request.Request: GET '/rbac/test/?id=1'>
+                 │                 └ <class 'apps.personal.models.WorkOrder'>
+                 └ <function get_object_or_404 at 0x11321a280>
+
+TypeError: 'QueryDict' object is not callable
+2021-10-13 13:11:12.083 | ERROR    | rbac.views.views:get:89 - No WorkOrder matches the given query.
+Traceback (most recent call last):
+
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/shortcuts.py", line 76, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           │        │    │       └ {'pk': '11'}
+           │        │    └ ()
+           │        └ <function QuerySet.get at 0x104033430>
+           └ <QuerySet [<WorkOrder: 1>]>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/db/models/query.py", line 415, in get
+    raise self.model.DoesNotExist(
+          │    │     └ <class 'apps.personal.models.WorkOrder.DoesNotExist'>
+          │    └ <class 'apps.personal.models.WorkOrder'>
+          └ <QuerySet [<WorkOrder: 1>]>
+
+apps.personal.models.WorkOrder.DoesNotExist: WorkOrder matching query does not exist.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x102beaca0>
+    └ <Thread(Thread-1, started daemon 123145416417280)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x102bea9d0>
+    └ <Thread(Thread-1, started daemon 123145416417280)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 123145416417280)>
+    │    │        │    └ (<socket.socket fd=31, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=(...
+    │    │        └ <Thread(Thread-1, started daemon 123145416417280)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x1063bc760>>
+    └ <Thread(Thread-1, started daemon 123145416417280)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 52009)
+    │    │              └ <socket.socket fd=31, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    └ <function BaseServer.finish_request at 0x1040d8af0>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x1063bc760>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x1063bc760>
+    │    │                   │        └ ('127.0.0.1', 52009)
+    │    │                   └ <socket.socket fd=31, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x1063bc760>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x105b59790>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x1065aa880>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x105b59820>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x1065aa880>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 197, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x105b7bc10>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x1063bc760>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x1065aa880>
+    │       └ <function BaseHandler.run at 0x105b788b0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x1066580d0>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x105b78c10>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x1066580d0>
+    │    │        │           │    └ {'PATH': '/Users/cx/.virtualenvs/sophomore/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x1066580d0>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x1063e5130>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x1066580d0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 68, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x1066580d0>>
+           │    │           └ {'PATH': '/Users/cx/.virtualenvs/sophomore/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x1040bcd60>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x1063e5130>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 133, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │    └ <function BaseHandler.get_response at 0x105b4a790>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x1040bcd60>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x106332160>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x1040bcd60>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x106333850>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x1062eee50>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x106333850>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x1064091f0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x106332c10>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x1064091f0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.common.CommonMiddleware object at 0x1064092b0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x106332ca0>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x1064092b0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x1040d9a90>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x106332790>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x1040d9a90>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x1040e18e0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x106332670>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x1040e18e0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x1040bcc40>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function BaseHandler._get_response at 0x106332280>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x1040bcc40>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x1040bcd60>>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <function ApiRootView at 0x10624c940>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           │          │       └ {}
+           │          └ (<WSGIRequest: GET '/rbac/test/?id=11'>,)
+           └ <function ApiRootView at 0x10624c8b0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+           │    │        │         │       └ {}
+           │    │        │         └ ()
+           │    │        └ <WSGIRequest: GET '/rbac/test/?id=11'>
+           │    └ <function APIView.dispatch at 0x10600eb80>
+           └ <rbac.views.views.ApiRootView object at 0x1066849d0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               │       │         │       └ {}
+               │       │         └ ()
+               │       └ <rest_framework.request.Request: GET '/rbac/test/?id=11'>
+               └ <bound method ApiRootView.get of <rbac.views.views.ApiRootView object at 0x1066849d0>>
+
+> File "/Users/cx/workspace/sophomore/apps/rbac/views/views.py", line 84, in get
+    work_order = get_object_or_404(WorkOrder, pk=request.GET.get('id'))
+                 │                 │             └ <rest_framework.request.Request: GET '/rbac/test/?id=11'>
+                 │                 └ <class 'apps.personal.models.WorkOrder'>
+                 └ <function get_object_or_404 at 0x105bd70d0>
+
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/shortcuts.py", line 78, in get_object_or_404
+    raise Http404('No %s matches the given query.' % queryset.model._meta.object_name)
+          │                                          │        │     │     └ 'WorkOrder'
+          │                                          │        │     └ <Options for WorkOrder>
+          │                                          │        └ <class 'apps.personal.models.WorkOrder'>
+          │                                          └ <QuerySet [<WorkOrder: 1>]>
+          └ <class 'django.http.response.Http404'>
+
+django.http.response.Http404: No WorkOrder matches the given query.
+2021-10-13 13:12:51.356 | ERROR    | rbac.views.views:get:92 - No WorkOrder matches the given query.
+Traceback (most recent call last):
+
+  File "/Users/cx/workspace/sophomore/apps/common/custom.py", line 48, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           │        │    │       └ {'pk': '11'}
+           │        │    └ ()
+           │        └ <function QuerySet.get at 0x10efd1430>
+           └ <QuerySet [<WorkOrder: 1>]>
+
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/db/models/query.py", line 415, in get
+    raise self.model.DoesNotExist(
+          │    │     └ <class 'apps.personal.models.WorkOrder.DoesNotExist'>
+          │    └ <class 'apps.personal.models.WorkOrder'>
+          └ <QuerySet [<WorkOrder: 1>]>
+
+apps.personal.models.WorkOrder.DoesNotExist: WorkOrder matching query does not exist.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10dca5ca0>
+    └ <Thread(Thread-1, started daemon 123145428369408)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x10dca59d0>
+    └ <Thread(Thread-1, started daemon 123145428369408)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 123145428369408)>
+    │    │        │    └ (<socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=(...
+    │    │        └ <Thread(Thread-1, started daemon 123145428369408)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x1110c7490>>
+    └ <Thread(Thread-1, started daemon 123145428369408)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 52289)
+    │    │              └ <socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    └ <function BaseServer.finish_request at 0x10f076af0>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x1110c7490>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x1110c7490>
+    │    │                   │        └ ('127.0.0.1', 52289)
+    │    │                   └ <socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x1110c7490>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x110af7790>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x1114cb340>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x110af7820>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x1114cb340>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 197, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x110b19c10>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x1110c7490>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x1114cb340>
+    │       └ <function BaseHandler.run at 0x110b168b0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x1114cb370>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x110b16c10>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x1114cb370>
+    │    │        │           │    └ {'PATH': '/Users/cx/.virtualenvs/sophomore/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x1114cb370>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x11132ce20>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x1114cb370>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 68, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x1114cb370>>
+           │    │           └ {'PATH': '/Users/cx/.virtualenvs/sophomore/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x10f05ad60>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x11132ce20>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 133, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │    └ <function BaseHandler.get_response at 0x110ae8790>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x10f05ad60>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x1112e24c0>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x10f05ad60>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x111296e80>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x1112e20d0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x111296e80>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x1112a6c10>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x1112e2c10>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x1112a6c10>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.common.CommonMiddleware object at 0x1112a6cd0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x1112e2af0>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x1112a6cd0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x10f078a90>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x111279550>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x10f078a90>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x10f07f8e0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x111233e50>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x10f07f8e0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x10f05ac40>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function BaseHandler._get_response at 0x111293f70>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x10f05ac40>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x10f05ad60>>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <function ApiRootView at 0x1111e9940>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           │          │       └ {}
+           │          └ (<WSGIRequest: GET '/rbac/test/?id=11'>,)
+           └ <function ApiRootView at 0x1111e98b0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+           │    │        │         │       └ {}
+           │    │        │         └ ()
+           │    │        └ <WSGIRequest: GET '/rbac/test/?id=11'>
+           │    └ <function APIView.dispatch at 0x110fabb80>
+           └ <rbac.views.views.ApiRootView object at 0x1114cbb20>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               │       │         │       └ {}
+               │       │         └ ()
+               │       └ <rest_framework.request.Request: GET '/rbac/test/?id=11'>
+               └ <bound method ApiRootView.get of <rbac.views.views.ApiRootView object at 0x1114cbb20>>
+
+> File "/Users/cx/workspace/sophomore/apps/rbac/views/views.py", line 87, in get
+    work_order = get_object_or_404(WorkOrder, pk=request.GET.get('id'))
+                 │                 │             └ <rest_framework.request.Request: GET '/rbac/test/?id=11'>
+                 │                 └ <class 'apps.personal.models.WorkOrder'>
+                 └ <function get_object_or_404 at 0x111148e50>
+
+  File "/Users/cx/workspace/sophomore/apps/common/custom.py", line 50, in get_object_or_404
+    raise Http404('No %s matches the given query.' % queryset.model._meta.object_name)
+          │                                          │        │     │     └ 'WorkOrder'
+          │                                          │        │     └ <Options for WorkOrder>
+          │                                          │        └ <class 'apps.personal.models.WorkOrder'>
+          │                                          └ <QuerySet [<WorkOrder: 1>]>
+          └ <class 'django.http.response.Http404'>
+
+django.http.response.Http404: No WorkOrder matches the given query.
+2021-10-13 13:51:36.428 | ERROR    | rbac.views.views:get:94 - 'Response' object has no attribute 'type'
+Traceback (most recent call last):
+
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 890, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x1068b4ca0>
+    └ <Thread(Thread-1, started daemon 123145538826240)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x1068b49d0>
+    └ <Thread(Thread-1, started daemon 123145538826240)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(Thread-1, started daemon 123145538826240)>
+    │    │        │    └ (<socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=(...
+    │    │        └ <Thread(Thread-1, started daemon 123145538826240)>
+    │    └ <bound method ThreadingMixIn.process_request_thread of <django.core.servers.basehttp.WSGIServer object at 0x10a07eb50>>
+    └ <Thread(Thread-1, started daemon 123145538826240)>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+    │    │              │        └ ('127.0.0.1', 58503)
+    │    │              └ <socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    └ <function BaseServer.finish_request at 0x107c85af0>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x10a07eb50>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    │    │                   │        │               └ <django.core.servers.basehttp.WSGIServer object at 0x10a07eb50>
+    │    │                   │        └ ('127.0.0.1', 58503)
+    │    │                   └ <socket.socket fd=29, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('...
+    │    └ <class 'django.core.servers.basehttp.WSGIRequestHandler'>
+    └ <django.core.servers.basehttp.WSGIServer object at 0x10a07eb50>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/socketserver.py", line 747, in __init__
+    self.handle()
+    │    └ <function WSGIRequestHandler.handle at 0x10981f790>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x10a22c670>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+    │    └ <function WSGIRequestHandler.handle_one_request at 0x10981f820>
+    └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x10a22c670>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 197, in handle_one_request
+    handler.run(self.server.get_app())
+    │       │   │    │      └ <function WSGIServer.get_app at 0x109841c10>
+    │       │   │    └ <django.core.servers.basehttp.WSGIServer object at 0x10a07eb50>
+    │       │   └ <django.core.servers.basehttp.WSGIRequestHandler object at 0x10a22c670>
+    │       └ <function BaseHandler.run at 0x10983e8b0>
+    └ <django.core.servers.basehttp.ServerHandler object at 0x10a22c910>
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/wsgiref/handlers.py", line 137, in run
+    self.result = application(self.environ, self.start_response)
+    │    │        │           │    │        │    └ <function BaseHandler.start_response at 0x10983ec10>
+    │    │        │           │    │        └ <django.core.servers.basehttp.ServerHandler object at 0x10a22c910>
+    │    │        │           │    └ {'PATH': '/Users/cx/.virtualenvs/sophomore/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:...
+    │    │        │           └ <django.core.servers.basehttp.ServerHandler object at 0x10a22c910>
+    │    │        └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x109f8dbb0>
+    │    └ None
+    └ <django.core.servers.basehttp.ServerHandler object at 0x10a22c910>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 68, in __call__
+    return self.application(environ, start_response)
+           │    │           │        └ <bound method BaseHandler.start_response of <django.core.servers.basehttp.ServerHandler object at 0x10a22c910>>
+           │    │           └ {'PATH': '/Users/cx/.virtualenvs/sophomore/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:...
+           │    └ <django.core.handlers.wsgi.WSGIHandler object at 0x107c69d60>
+           └ <django.contrib.staticfiles.handlers.StaticFilesHandler object at 0x109f8dbb0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 133, in __call__
+    response = self.get_response(request)
+               │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │    └ <function BaseHandler.get_response at 0x109810790>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x107c69d60>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/base.py", line 75, in get_response
+    response = self._middleware_chain(request)
+               │    │                 └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │    └ <function convert_exception_to_response.<locals>.inner at 0x10a0baaf0>
+               └ <django.core.handlers.wsgi.WSGIHandler object at 0x107c69d60>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.security.SecurityMiddleware object at 0x10a0cb940>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x10a0ba9d0>
+               │           └ <django.middleware.security.SecurityMiddleware object at 0x10a0cb940>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x10a0cba30>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x10a0ba940>
+               │           └ <django.contrib.sessions.middleware.SessionMiddleware object at 0x10a0cba30>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.common.CommonMiddleware object at 0x10a0cbaf0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x10a0ba8b0>
+               │           └ <django.middleware.common.CommonMiddleware object at 0x10a0cbaf0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.middleware.csrf.CsrfViewMiddleware object at 0x107c87a90>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x10a0ba820>
+               │           └ <django.middleware.csrf.CsrfViewMiddleware object at 0x107c87a90>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x107c8e8e0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function convert_exception_to_response.<locals>.inner at 0x10a0ba790>
+               │           └ <django.contrib.auth.middleware.AuthenticationMiddleware object at 0x107c8e8e0>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <django.contrib.messages.middleware.MessageMiddleware object at 0x107c69c40>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/utils/deprecation.py", line 94, in __call__
+    response = response or self.get_response(request)
+               │           │    │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               │           │    └ <function BaseHandler._get_response at 0x10a0ba700>
+               │           └ <django.contrib.messages.middleware.MessageMiddleware object at 0x107c69c40>
+               └ None
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+               │            └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <bound method BaseHandler._get_response of <django.core.handlers.wsgi.WSGIHandler object at 0x107c69d60>>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               │                │         │                └ {}
+               │                │         └ ()
+               │                └ <WSGIRequest: GET '/rbac/test/?id=11'>
+               └ <function ApiRootView at 0x109f0f8b0>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           │          │       └ {}
+           │          └ (<WSGIRequest: GET '/rbac/test/?id=11'>,)
+           └ <function ApiRootView at 0x109f0f820>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+           │    │        │         │       └ {}
+           │    │        │         └ ()
+           │    │        └ <WSGIRequest: GET '/rbac/test/?id=11'>
+           │    └ <function APIView.dispatch at 0x109cd4b80>
+           └ <rbac.views.views.ApiRootView object at 0x10a26e250>
+  File "/Users/cx/.virtualenvs/sophomore/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               │       │         │       └ {}
+               │       │         └ ()
+               │       └ <rest_framework.request.Request: GET '/rbac/test/?id=11'>
+               └ <bound method ApiRootView.get of <rbac.views.views.ApiRootView object at 0x10a26e250>>
+
+> File "/Users/cx/workspace/sophomore/apps/rbac/views/views.py", line 90, in get
+    type, status = work_order.type, work_order.status
+                   │                └ <Response status_code=200, "text/html; charset=utf-8">
+                   └ <Response status_code=200, "text/html; charset=utf-8">
+
+AttributeError: 'Response' object has no attribute 'type'

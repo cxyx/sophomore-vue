@@ -1,0 +1,21 @@
+2021-10-08 16:14:39 | test
+2021-10-08 16:29:45.434 | INFO     | __main__:<module>:35 - test
+2021-10-08 16:31:17.805 | INFO     | __main__:<module>:35 - test
+2021-10-08 16:31:17.806 | DEBUG    | __main__:<module>:36 - test
+2021-10-08 16:31:32.880 | INFO     | __main__:<module>:35 - test
+2021-10-08 16:31:32.881 | DEBUG    | __main__:<module>:36 - test
+2021-10-08 16:31:32.881 | ERROR    | __main__:<module>:37 - test
+2021-10-08 16:48:42.253 | INFO     | __main__:<module>:38 - test
+2021-10-08 16:48:42.254 | DEBUG    | __main__:<module>:39 - test
+2021-10-08 16:48:42.254 | ERROR    | __main__:<module>:40 - test
+2021-10-08 16:48:42.255 | ERROR    | __main__:<module>:42 - An error has been caught in function '<module>', process 'MainProcess' (18007), thread 'MainThread' (4641836544):
+Traceback (most recent call last):
+
+> File "/Users/cx/workspace/sophomore/sophomore/loggers.py", line 42, in <module>
+    test_1()
+    └ <function test_1 at 0x10c5ec8b0>
+
+  File "/Users/cx/workspace/sophomore/sophomore/loggers.py", line 34, in test_1
+    return 1/0
+
+ZeroDivisionError: division by zero

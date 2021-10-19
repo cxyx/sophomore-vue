@@ -1,0 +1,25 @@
+djangorestframework~=3.12.4
+djangorestframework-jwt~=1.11.0
+utils~=1.0.1
+PyJWT~=1.7.1
+Django~=3.1.13
+django-filter~=2.4.0
+PyMySQL~=1.0.2
+Pillow
+# django 认证
+django-rest-auth
+# admin 优化
+django-widget-tweaks
+django_filters
+django_tables2
+django-simpleui
+
+# celery 相关
+celery~=5.1.2
+django-celery-beat
+django-celery-results
+
+django-redis
+icecream~=2.1.1
+simpleui~=4.0.2
+APScheduler~=3.7.0
