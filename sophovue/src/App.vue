@@ -4,6 +4,7 @@
     <img src="./assets/logo.png"><br />
     <router-link to="/">Root</router-link>
     <router-link to="/user">User</router-link>
+    <router-link to="/ele">ele</router-link>
     <hr />
     <router-view/>
   </div>

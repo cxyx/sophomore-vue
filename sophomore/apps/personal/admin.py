@@ -3,9 +3,9 @@ from import_export.admin import ImportExportModelAdmin
 from .resource import *
 from django.http import JsonResponse
 
-admin.site.site_header = 'sophomore管理后台'  # 设置header
-admin.site.site_title = 'sophomore管理后台'  # 设置title
-admin.site.index_title = 'sophomore管理后台'
+# admin.site.site_header = 'sophomore管理后台'  # 设置header
+# admin.site.site_title = 'sophomore管理后台'  # 设置title
+# admin.site.index_title = 'sophomore管理后台'
 
 # Register your models here.
 # admin.site.register(models.UserProfile)

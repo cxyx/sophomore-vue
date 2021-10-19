@@ -28,9 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 INSTALLED_APPS = [
-    'simpleui',
+    # 'simpleui',
+    'django_extensions',
+    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,16 +54,17 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'drf_yasg',
-
-    'apps.personal',
-    'apps.operation',
-    'apps.rbac',
-    'apps.assets',
+    'personal',
+    'operation',
+    'rbac',
+    'assets',
+    'api',
     # 'django.contrib.staticfiles',
 
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -93,12 +97,19 @@ WSGI_APPLICATION = 'sophomore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'read_default_file': os.path.dirname(os.path.abspath(__file__)) + '/mysql.cnf'
+#         }
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.dirname(os.path.abspath(__file__)) + '/mysql.cnf'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -145,7 +156,7 @@ STATICFILES_DIRS = [
 
 ]
 
-sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+
 AUTH_USER_MODEL = 'rbac.UserProfile'
 
 SIMPLEUI_HOME_INFO = False
@@ -171,7 +182,7 @@ REST_framework = {
 SIMPLE_JWT = {
     # 'REFRESH_TOKEN_LIFETIME': timedelta(days=15),
     # 'ROTATE_REFRESH_TOKENS': True,
-'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(minutes=30),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
@@ -199,6 +210,22 @@ SIMPLE_JWT = {
 
 }
 
-AUTHENTICATION_BACKENDS = (
-    'rbac.views1.MyCustomBackend',
-)
+# AUTHENTICATION_BACKENDS = (
+    # 'rbac.views1.MyCustomBackend',
+# )
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'localhost'
+]
+
+# settings.py
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+]

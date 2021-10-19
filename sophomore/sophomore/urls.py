@@ -37,6 +37,16 @@ urlpatterns = [
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     # path('personal/', include(('personal.urls', 'personal'), namespace='personal')),
-    path('rbac/', include('rbac.urls'))
+    path('api/', include(('api.urls', 'api'), namespace='api')),
+    path('rbac/', include('rbac.urls')),
 
 ]
+
+
+# 如果是调式状态
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns = [
+                      path('__debug__/', include(debug_toolbar.urls)),
+                  ] + urlpatterns

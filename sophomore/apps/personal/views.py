@@ -3,7 +3,6 @@ from django.contrib.auth import get_user_model
 # Create your views here.
 from rest_framework.views import APIView
 from sophomore.loggers import l_logger
-User = get_user_model()
 from .menu_config import get_menu_list
 from .models import *
 from apscheduler.schedulers.background import BackgroundScheduler  # 使用它可以使你的定时任务在后台运行
@@ -11,6 +10,7 @@ from django_apscheduler.jobstores import DjangoJobStore, register_events, regist
 import time
 from functools import wraps
 
+User = get_user_model()
 logger = l_logger('personal')
 
 '''
